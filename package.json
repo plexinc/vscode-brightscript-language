@@ -1178,9 +1178,15 @@
                         "description": "if true, insert newlines and indents for multi-line objects and arrays.",
                         "scope": "resource"
                     },
+                    "brightscript.format.specificKeywordCaseOverride": {
+                        "type": "object",
+                        "description": "Allows overriding case at the individual keyword level. The value can be any string, and will be used as the literal replacement for the type keyword. Example: {\"longinteger\": \"LongInteger\"} would make 'longinteger' always replaced with 'LongInteger', regardless of case settings. This differs from 'keywordCaseOverride', which only accepts case style values (\"lower\", \"upper\", \"title\", \"original\").",
+                        "scope": "resource",
+                        "additionalProperties": true
+                    },
                     "brightscript.format.keywordCaseOverride": {
                         "type": "object",
-                        "description": "Allows overriding case at the individual keyword level.\nExample {\"string\": \"title\"} would make string always lower case regardless of keywordCase",
+                        "description": "Allows overriding case at the individual keyword level.\nExample {\"string\": \"title\"} would make string always title case regardless of keywordCase",
                         "properties": {
                             "endfunction": {
                                 "type": "string",
@@ -1652,6 +1658,12 @@
                             }
                         },
                         "scope": "resource"
+                    },
+                    "brightscript.format.specificTypeCaseOverride": {
+                        "type": "object",
+                        "description": "Allows overriding case at the individual type keyword level. The value can be any string, and will be used as the literal replacement for the type keyword. Example: {\"longinteger\": \"longInteger\"} would make 'longinteger' always replaced with 'longInteger', regardless of case settings. This differs from 'typeCaseOverride', which only accepts case style values (\"lower\", \"upper\", \"title\", \"original\").",
+                        "scope": "resource",
+                        "additionalProperties": true
                     },
                     "brightscript.format.typeCaseOverride": {
                         "type": "object",
