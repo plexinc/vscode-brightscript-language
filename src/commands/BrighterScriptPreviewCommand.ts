@@ -190,14 +190,17 @@ export class BrighterScriptPreviewCommand {
     }
 
     private activePreviews = {} as Record<string, {
+
         /**
              * The editor this "preview transpiled bs" command was initiated upon.
              */
         sourceEditor: vscode.TextEditor;
+
         /**
              * The editor that contains the preview doc
              */
         previewEditor: vscode.TextEditor;
+
         /**
              * the latest source map for the preview.
              */

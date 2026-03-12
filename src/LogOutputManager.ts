@@ -1,8 +1,7 @@
 import * as vscode from 'vscode';
 import { isChanperfEvent, isLaunchStartEvent, isLogOutputEvent, isRendezvousEvent } from 'roku-debug';
 import type { DeclarationProvider } from './DeclarationProvider';
-import type { LogDocumentLinkProvider } from './LogDocumentLinkProvider';
-import { CustomDocumentLink } from './LogDocumentLinkProvider';
+import { type LogDocumentLinkProvider, CustomDocumentLink } from './LogDocumentLinkProvider';
 import * as fsExtra from 'fs-extra';
 import type { BrightScriptLaunchConfiguration } from './DebugConfigurationProvider';
 import stripAnsi from 'strip-ansi';
@@ -35,6 +34,7 @@ export class LogOutputManager {
         this.includeRegex = null;
         this.logLevelRegex = null;
         this.excludeRegex = null;
+
         /**
          * we want to catch a few different link formats here:
          *  - pkg:/path/file.brs(LINE:COL)

@@ -1,11 +1,9 @@
 import * as fs from 'fs';
 import * as iconv from 'iconv-lite';
 import * as vscode from 'vscode';
-import type {
-    TextDocument,
-    Uri
-} from 'vscode';
 import {
+    type TextDocument,
+    type Uri,
     Location,
     Position
 } from 'vscode';

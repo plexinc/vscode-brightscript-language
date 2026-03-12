@@ -13,6 +13,7 @@ import { vscodeContextManager } from './VscodeContextManager';
  */
 export const manualHostItemId = `${Number.MAX_SAFE_INTEGER}`;
 const manualLabel = 'Enter manually';
+
 /**
  * An id to represent the "Scan for devices" option in the host picker
  */

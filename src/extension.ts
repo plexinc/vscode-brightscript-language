@@ -1,14 +1,12 @@
 import * as vscode from 'vscode';
 import * as prettyBytes from 'pretty-bytes';
-import { extensions } from 'vscode';
 import * as path from 'path';
 import * as fsExtra from 'fs-extra';
 import { util } from './util';
 import { DeviceManager } from './deviceDiscovery/DeviceManager';
 import { BrightScriptCommands } from './BrightScriptCommands';
 import BrightScriptXmlDefinitionProvider from './BrightScriptXmlDefinitionProvider';
-import type { BrightScriptLaunchConfiguration } from './DebugConfigurationProvider';
-import { BrightScriptDebugConfigurationProvider } from './DebugConfigurationProvider';
+import { type BrightScriptLaunchConfiguration, BrightScriptDebugConfigurationProvider } from './DebugConfigurationProvider';
 import { DeclarationProvider } from './DeclarationProvider';
 import { DefinitionRepository } from './DefinitionRepository';
 import { Formatter } from './formatter';
@@ -22,8 +20,7 @@ import { languageServerManager } from './LanguageServerManager';
 import { TelemetryManager } from './managers/TelemetryManager';
 import { RemoteControlManager } from './managers/RemoteControlManager';
 import { WhatsNewManager } from './managers/WhatsNewManager';
-import type { CustomRequestEvent } from 'roku-debug';
-import { isChannelPublishedEvent, isChanperfEvent, isDiagnosticsEvent, isDebugServerLogOutputEvent, isLaunchStartEvent, isRendezvousEvent, isCustomRequestEvent, isExecuteTaskCustomRequest, ClientToServerCustomEventName, isShowPopupMessageCustomRequest } from 'roku-debug';
+import { type CustomRequestEvent, isChannelPublishedEvent, isChanperfEvent, isDiagnosticsEvent, isDebugServerLogOutputEvent, isLaunchStartEvent, isRendezvousEvent, isCustomRequestEvent, isExecuteTaskCustomRequest, ClientToServerCustomEventName, isShowPopupMessageCustomRequest } from 'roku-debug';
 import { RtaManager } from './managers/RtaManager';
 import { WebviewViewProviderManager } from './managers/WebviewViewProviderManager';
 import { ViewProviderId } from './viewProviders/ViewProviderId';
@@ -38,6 +35,7 @@ import { PerfettoEditorProvider } from './editors/PerfettoEditor';
 export class Extension {
     public outputChannel: vscode.OutputChannel;
     public sceneGraphDebugChannel: vscode.OutputChannel;
+
     /**
      * Output channel where all the extension logs should be written (includes roku-debug, vscode-brightscript-language, etc...)
      */
@@ -56,7 +54,7 @@ export class Extension {
     public async activate(context: vscode.ExtensionContext) {
         //make this entire extension disposable so that all resources will be cleaned up on extension deactivation
         context.subscriptions.push(this);
-        const currentExtensionVersion = extensions.getExtension(EXTENSION_ID)?.packageJSON.version as string;
+        const currentExtensionVersion = vscode.extensions.getExtension(EXTENSION_ID)?.packageJSON.version as string;
 
         this.globalStateManager = new GlobalStateManager(context);
         this.whatsNewManager = new WhatsNewManager(this.globalStateManager, currentExtensionVersion);

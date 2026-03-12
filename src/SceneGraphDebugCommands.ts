@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
-import type { SceneGraphCommandResponse } from 'roku-debug';
-import { SceneGraphDebugCommandController } from 'roku-debug';
+import { type SceneGraphCommandResponse, SceneGraphDebugCommandController } from 'roku-debug';
 
 export class SceneGraphDebugCommands {
     private outputChannel: vscode.OutputChannel;

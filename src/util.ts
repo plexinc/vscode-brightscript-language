@@ -465,7 +465,7 @@ class Util {
                 if (error) {
                     reject(error);
                 } else {
-                    resolve(stdout);
+                    resolve(stdout as string);
                 }
             });
         });

@@ -238,6 +238,7 @@ export abstract class BaseWebviewViewProvider implements vscode.WebviewViewProvi
             baseHref: `${this.asWebviewUri(this.webviewBasePath)}/`,
             additionalScriptContents: this.additionalScriptContents().join('\n                        ')
         };
+
         /**
          * replace placeholders in the html, in one of these formats:
          * <!--{{thing1}}-->

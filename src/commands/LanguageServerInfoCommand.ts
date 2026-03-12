@@ -8,7 +8,7 @@ import { VscodeCommand } from './VscodeCommand';
 import URI from 'vscode-uri';
 import * as relativeTime from 'dayjs/plugin/relativeTime';
 import { util } from '../util';
-import { type LocalPackageManager } from '../managers/LocalPackageManager';
+import type { LocalPackageManager } from '../managers/LocalPackageManager';
 import * as semver from 'semver';
 import { standardizePath as s } from 'brighterscript';
 import type { QuickPickItem } from 'vscode';

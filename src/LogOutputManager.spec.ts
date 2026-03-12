@@ -1,6 +1,5 @@
 import { assert, expect } from 'chai';
-import type Sinon from 'sinon';
-import { createSandbox } from 'sinon';
+import { type SinonMock, createSandbox } from 'sinon';
 const sinon = createSandbox();
 let Module = require('module');
 
@@ -23,11 +22,11 @@ import { LogLine, LogOutputManager } from './LogOutputManager';
 import { LaunchStartEvent, LogOutputEvent } from 'roku-debug';
 
 describe('LogOutputManager ', () => {
-    let logOutputManagerMock: Sinon.SinonMock;
+    let logOutputManagerMock: SinonMock;
     let logOutputManager: LogOutputManager;
-    let outputChannelMock: Sinon.SinonMock;
-    let logDocumentLinkProviderMock: Sinon.SinonMock;
-    let declarationProviderMock: Sinon.SinonMock;
+    let outputChannelMock: SinonMock;
+    let logDocumentLinkProviderMock: SinonMock;
+    let declarationProviderMock: SinonMock;
 
     beforeEach(() => {
         sinon.restore();

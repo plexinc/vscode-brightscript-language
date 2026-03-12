@@ -1,8 +1,6 @@
-import type {
-    CancellationToken,
-    TextDocument
-} from 'vscode';
 import {
+    type CancellationToken,
+    type TextDocument,
     Position,
     Range
 } from 'vscode';

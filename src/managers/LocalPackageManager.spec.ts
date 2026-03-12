@@ -1,6 +1,5 @@
 import { vscode } from '../mockVscode.spec';
-import type { PackageCatalogPackageInfo } from './LocalPackageManager';
-import { LocalPackageManager } from './LocalPackageManager';
+import { type PackageCatalogPackageInfo, LocalPackageManager } from './LocalPackageManager';
 import { standardizePath as s } from 'brighterscript';
 import * as fsExtra from 'fs-extra';
 import { expect } from 'chai';

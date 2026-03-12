@@ -540,6 +540,7 @@ export class BrightScriptPseudoterminal implements vscode.Pseudoterminal {
 }
 
 interface BrightscriptTaskDefinition extends vscode.TaskDefinition {
+
     /**
      * The command to run
      */

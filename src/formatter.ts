@@ -1,20 +1,17 @@
-import type { FormattingOptions } from 'brighterscript-formatter';
-import { Runner, Formatter as BrighterScriptFormatter } from 'brighterscript-formatter';
-import type {
-    DocumentRangeFormattingEditProvider,
-    TextDocument
-} from 'vscode';
+import { type FormattingOptions, Runner, Formatter as BrighterScriptFormatter } from 'brighterscript-formatter';
 import {
+    type DocumentRangeFormattingEditProvider,
+    type TextDocument,
+    type FormattingOptions as VscodeFormattingOptions,
     Position,
     Range,
     TextEdit,
     window, workspace
 } from 'vscode';
-import type * as vscode from 'vscode';
 
 export class Formatter implements DocumentRangeFormattingEditProvider {
 
-    public async provideDocumentRangeFormattingEdits(document: TextDocument, range: Range, options: vscode.FormattingOptions): Promise<TextEdit[]> {
+    public async provideDocumentRangeFormattingEdits(document: TextDocument, range: Range, options: VscodeFormattingOptions): Promise<TextEdit[]> {
 
         //TODO is there anything we can to do to better detect when the same file is used in multiple workspaces?
         //vscode seems to pick the lowest workspace (or perhaps the last workspace?)

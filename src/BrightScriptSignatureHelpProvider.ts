@@ -1,9 +1,7 @@
-import type {
-    CancellationToken,
-    SignatureHelpProvider,
-    TextDocument
-} from 'vscode';
 import {
+    type CancellationToken,
+    type SignatureHelpProvider,
+    type TextDocument,
     ParameterInformation,
     Position,
     Range,

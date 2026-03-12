@@ -353,41 +353,50 @@ export interface PackageCatalogPackageInfo {
 }
 
 export interface PackageInfo {
+
     /**
      * The name of the package
      */
     packageName: string;
+
     /**
      * The versionInfo of the package.
      */
     versionInfo: VersionInfo;
+
     /**
      * The directory where the top-level folder for this package and version will be located. (i.e. `${storageDir}/${packageName}/${versionDirName}`).
      * Due to how how we install packages, this will be the root directory for the package which contains a barebones `package.json` file,
      * and once installed, will also contain the `node_modules/${packageName}` folder.
      */
     rootDir: string;
+
     /**
      * Directory where this package will actually be located (i.e. `${packageDir}/node_modules/${packageName}`)
      */
     packageDir: string;
+
     /**
      * The version from this package's `package.json` file. Will be `undefined` if unable to read the file
      */
     version?: string;
+
     /**
      * The name of the directory representing this version. If versionInfo is a semantic version, we'll use that for the dirName.
      * Otherwise, we'll create a unique hash of the versionInfo
      */
     versionDirName: string;
+
     /**
      * Is this package currently installed
      */
     isInstalled: boolean;
+
     /**
      * Date this package was installed
      */
     installDate: Date;
+
     /**
      * Date this package was last used by vscode
      */

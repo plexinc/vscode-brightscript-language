@@ -10,8 +10,8 @@ import { BusyStatus, Deferred, standardizePath as s } from 'brighterscript';
 import * as fsExtra from 'fs-extra';
 import URI from 'vscode-uri';
 import { languageServerInfoCommand } from './commands/LanguageServerInfoCommand';
-import type { StateChangeEvent } from 'vscode-languageclient/node';
 import {
+    type StateChangeEvent,
     LanguageClient,
     State
 } from 'vscode-languageclient/node';

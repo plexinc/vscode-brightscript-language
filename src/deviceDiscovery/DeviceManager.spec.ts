@@ -2,8 +2,7 @@ import { expect } from 'chai';
 import * as sinon from 'sinon';
 import { rokuDeploy } from 'roku-deploy';
 import { vscode } from '../mockVscode.spec';
-import type { RokuDeviceDetails } from './DeviceManager';
-import { DeviceManager } from './DeviceManager';
+import { type RokuDeviceDetails, DeviceManager } from './DeviceManager';
 import * as NetworkChangeMonitorModule from './NetworkChangeMonitor';
 import { util } from '../util';
 

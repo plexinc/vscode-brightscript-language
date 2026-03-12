@@ -1,7 +1,6 @@
 import * as arraySort from 'array-sort';
 import * as vscode from 'vscode';
-import type { RendezvousHistory } from 'roku-debug';
-import { isRendezvousEvent } from 'roku-debug';
+import { type RendezvousHistory, isRendezvousEvent } from 'roku-debug';
 import { ViewProviderId } from './ViewProviderId';
 
 export class RendezvousViewProvider implements vscode.TreeDataProvider<vscode.TreeItem> {

@@ -22,6 +22,7 @@ export class CustomDocumentLink {
     public filename: string;
     public lineNumber: number;
 }
+
 /**
  * Provides file links in any output window that has the pkg:/ format.
  * This only works after a debug session has started,  because the file mappings are provided in the debug launch arguments

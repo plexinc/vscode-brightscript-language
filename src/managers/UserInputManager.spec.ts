@@ -6,8 +6,7 @@ import { UserInputManager, manualHostItemId, scanForDevicesItemId } from './User
 import { vscode } from '../mockVscode.spec';
 import { standardizePath as s } from 'brighterscript';
 import * as fsExtra from 'fs-extra';
-import type { RokuDeviceDetails } from '../deviceDiscovery/DeviceManager';
-import { DeviceManager } from '../deviceDiscovery/DeviceManager';
+import { type RokuDeviceDetails, DeviceManager } from '../deviceDiscovery/DeviceManager';
 import { GlobalStateManager } from '../GlobalStateManager';
 import { icons } from '../icons';
 

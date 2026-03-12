@@ -5,8 +5,7 @@ import type {
     TextDocument
 } from 'vscode';
 import { BrightScriptDeclaration } from './BrightScriptDeclaration';
-import type { DeclarationProvider } from './DeclarationProvider';
-import { getExcludeGlob } from './DeclarationProvider';
+import { type DeclarationProvider, getExcludeGlob } from './DeclarationProvider';
 
 export class DefinitionRepository {
 

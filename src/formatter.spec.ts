@@ -3,8 +3,7 @@ import * as sinon from 'sinon';
 import * as fsExtra from 'fs-extra';
 import { standardizePath as s } from 'brighterscript';
 import { vscode } from './mockVscode.spec';
-import type { FormattingOptions } from 'brighterscript-formatter';
-import { Formatter as BrighterScriptFormatter } from 'brighterscript-formatter';
+import { type FormattingOptions, Formatter as BrighterScriptFormatter } from 'brighterscript-formatter';
 
 let Module = require('module');
 
@@ -86,16 +85,22 @@ describe('Formatter', () => {
      * Helper to test formatter with various configurations
      */
     async function doTest(options: {
+
         /** Name for the workspace folder */
         workspaceName: string;
+
         /** Optional config files to create. Key is path relative to workspace, value is the config content */
         configFiles?: Record<string, any>;
+
         /** VS Code workspace configuration settings */
         vscodeConfig?: Record<string, any>;
+
         /** Source text to format */
         sourceText: string;
+
         /** Expected formatting options that should be applied */
         expectedFormattingOptions: FormattingOptions;
+
         /** Optional custom verification function */
         customVerify?: (edits: any[]) => void;
     }) {

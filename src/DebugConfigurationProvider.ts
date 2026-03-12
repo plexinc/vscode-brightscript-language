@@ -2,7 +2,7 @@ import { util as bslangUtil } from 'brighterscript';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import * as fsExtra from 'fs-extra';
-import { DefaultFiles } from 'roku-deploy';
+import { type DeviceInfo, DefaultFiles, rokuDeploy } from 'roku-deploy';
 import * as rta from 'roku-test-automation';
 import type {
     CancellationToken,
@@ -11,14 +11,11 @@ import type {
     WorkspaceFolder
 } from 'vscode';
 import * as vscode from 'vscode';
-import type { LaunchConfiguration } from 'roku-debug';
-import { fileUtils } from 'roku-debug';
+import { type LaunchConfiguration, fileUtils } from 'roku-debug';
 import { util } from './util';
 import type { TelemetryManager } from './managers/TelemetryManager';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 import cloneDeep = require('clone-deep');
-import { rokuDeploy } from 'roku-deploy';
-import type { DeviceInfo } from 'roku-deploy';
 import type { UserInputManager } from './managers/UserInputManager';
 import type { BrightScriptCommands } from './BrightScriptCommands';
 
@@ -531,14 +528,17 @@ export class BrightScriptDebugConfigurationProvider implements DebugConfiguratio
 }
 
 export interface BrightScriptLaunchConfiguration extends LaunchConfiguration {
+
     /**
      * The name of this launch configuration
      */
     name: string;
+
     /**
      * The type of this debug configuration
      */
     type: string;
+
     /**
      * Should the debugger launch or attach. roku-debug only supports launching
      */
@@ -548,6 +548,7 @@ export interface BrightScriptLaunchConfiguration extends LaunchConfiguration {
      * A path to a file where all brightscript console output will be written. If falsey, file logging will be disabled.
      */
     logfilePath?: string;
+
     /**
      *  If true, then the zip archive is NOT deleted after a debug session has been closed.
      * @default true

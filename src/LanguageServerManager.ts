@@ -1,12 +1,9 @@
-import type { LanguageClientOptions, ServerOptions, ExecuteCommandParams, StateChangeEvent } from 'vscode-languageclient/node';
-import { LanguageClient, State, TransportKind } from 'vscode-languageclient/node';
+import { type LanguageClientOptions, type ServerOptions, type ExecuteCommandParams, type StateChangeEvent, LanguageClient, State, TransportKind } from 'vscode-languageclient/node';
 import * as vscode from 'vscode';
 import * as path from 'path';
-import type { Disposable } from 'vscode';
-import { window, workspace } from 'vscode';
-import { BusyStatus, NotificationName, standardizePath as s } from 'brighterscript';
+import { type Disposable, window, workspace } from 'vscode';
+import { BusyStatus, NotificationName, standardizePath as s, CustomCommands, Deferred } from 'brighterscript';
 import { Logger } from '@rokucommunity/logger';
-import { CustomCommands, Deferred } from 'brighterscript';
 import type { CodeWithSourceMap } from 'source-map';
 import BrightScriptDefinitionProvider from './BrightScriptDefinitionProvider';
 import { BrightScriptWorkspaceSymbolProvider, SymbolInformationRepository } from './SymbolInformationRepository';
@@ -77,6 +74,7 @@ export class LanguageServerManager {
      * Information about the embedded brighterscript version
      */
     public embeddedBscInfo: BscInfo;
+
     /**
      * Information about the currently selected brighterscript version (the one that's running right now)
      */
@@ -611,15 +609,18 @@ export class LanguageServerManager {
 export const languageServerManager = new LanguageServerManager();
 
 interface BscInfo {
+
     /**
      * The full path to the brighterscript module (i.e. the folder where its `package.json` is located
      */
     packageDir: string;
+
     /**
      * The versionInfo of the brighterscript module. Typically this is a semantic version, but it could be a URL or a folder path.
      * Anything that can go inside a `package.json` file is acceptable as well
      */
     versionInfo: string;
+
     /**
      * The version of the brighterscript module from its package.json. This is displayed in the statusbar
      */

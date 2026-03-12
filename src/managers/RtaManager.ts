@@ -67,7 +67,7 @@ export class RtaManager {
     public async sendOdcRequest(requestorId: string, command: string, context: { args: any; options: any }) {
         const { args, options } = context;
 
-        if (command === rta.RequestType.writeFile) {
+        if (command === rta.RequestType.writeFile as string) {
             // We can't access files from the webview so we just store the path and access it in node instead
             const directoryPath = path.dirname(args.destinationPath);
             // We always try to make the directory. Doesn't fail if it already exists
@@ -90,9 +90,9 @@ export class RtaManager {
         this.lastAppUIResponse = await rta.ecp.getAppUI();
 
         const viewIds = [];
-        if (requestorId === ViewProviderId.rokuDeviceView) {
+        if (requestorId === ViewProviderId.rokuDeviceView as string) {
             viewIds.push(ViewProviderId.sceneGraphInspectorView);
-        } else if (requestorId === ViewProviderId.sceneGraphInspectorView) {
+        } else if (requestorId === ViewProviderId.sceneGraphInspectorView as string) {
             viewIds.push(ViewProviderId.rokuDeviceView);
         }
 

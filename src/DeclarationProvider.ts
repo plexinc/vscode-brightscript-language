@@ -3,11 +3,9 @@ import * as iconv from 'iconv-lite';
 import * as vscode from 'vscode';
 import * as path from 'path';
 
-import type {
-    Event,
-    Uri
-} from 'vscode';
 import {
+    type Event,
+    type Uri,
     Disposable,
     EventEmitter, Location,
     Position,

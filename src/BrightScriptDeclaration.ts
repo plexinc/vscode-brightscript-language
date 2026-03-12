@@ -1,9 +1,7 @@
-import type {
-    Position,
-    Range,
-    Uri
-} from 'vscode';
 import {
+    type Position,
+    type Range,
+    type Uri,
     Location,
     SymbolKind
 } from 'vscode';

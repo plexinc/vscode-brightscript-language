@@ -14,6 +14,7 @@ export const icons = {
         light: vscode.Uri.file(`${__dirname}/../images/icons/set-top-box-light.svg`),
         dark: vscode.Uri.file(`${__dirname}/../images/icons/set-top-box-dark.svg`)
     },
+
     /**
      * Get the correct icon for the device type
      */
