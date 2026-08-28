@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: "18.18.2"
+          node-version: "20.19.4"
           registry-url: 'https://npm.pkg.github.com'
           scope: '@plexinc'
       - name: npm ci
