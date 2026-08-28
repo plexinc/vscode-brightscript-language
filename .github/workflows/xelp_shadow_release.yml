@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      # The install pulls @plexinc packages, and an explicit permissions block
+      # sets everything it does not list to none.
+      #
+      packages: read
     steps:
       - name: Checkout xelp/main
         uses: actions/checkout@v4
@@ -19,6 +23,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.12.0'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@plexinc'
 
       - name: Configure Git
         run: |
@@ -68,6 +74,8 @@ jobs:
           echo "tag_version=$TAG_VERSION" >> $GITHUB_OUTPUT
           echo "metadata_version=$METADATA_VERSION" >> $GITHUB_OUTPUT
       - name: Install dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm ci
 
       - name: Update package.json version

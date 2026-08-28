@@ -8,6 +8,11 @@ on:
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
+    # npm ci reads @plexinc packages, so do not rely on the repository
+    # default, which an organization can tighten without warning.
+    permissions:
+      contents: read
+      packages: read
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
@@ -16,7 +21,12 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: "18.18.2"
-      - run: npm ci
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@plexinc'
+      - name: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm ci
       - run: npm run build
       - run: npm run lint
       - run: npm run test
