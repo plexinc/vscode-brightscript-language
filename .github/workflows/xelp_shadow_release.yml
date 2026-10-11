@@ -78,9 +78,16 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm ci
 
+      # The preversion checks, less its npm audit. Upstream owns the advisory
+      # allowlist that audit depends on, so it fails here whenever a new
+      # advisory lands before upstream reviews it.
+      #
+      - name: Check
+        run: npm run build && npm run lint && npm run check-webviews && npm run test && npm run check-extraneous
+
       - name: Update package.json version
         run: |
-          npm version ${{ steps.version.outputs.package_version }} --no-git-tag-version
+          npm version ${{ steps.version.outputs.package_version }} --no-git-tag-version --ignore-scripts
 
       - name: Create VSIX
         run: npm run create-package
